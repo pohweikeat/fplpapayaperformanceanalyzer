@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated": "2026-05-25T19:04:41.765076",
+    "generated": "2026-05-25T21:35:33.948754",
     "source": "Master.xlsx",
     "seasons_completed": 10,
     "note": "Papaya FPL \u2014 do not edit manually, regenerate via export_data.py"
@@ -535,6 +535,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/1563909/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -998,6 +999,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/1564222/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -1461,6 +1463,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/1564315/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -2009,6 +2012,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/1574748/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -2643,6 +2647,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/6241642/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -3448,6 +3453,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/10091089/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -4425,6 +4431,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/13929794/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -5574,6 +5581,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/18066662/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -6809,6 +6817,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/23419788/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",
@@ -8129,6 +8138,7 @@
         }
       ],
       "gw_count": 38,
+      "flourish_url": "https://flo.uri.sh/visualisation/29116544/embed",
       "side_leagues": {
         "draft": {
           "name": "FPL Draft",

@@ -230,104 +230,113 @@ body::before {
   line-height: 1.7;
 }
 
-.hero-stats-story {
-  display: flex;
-  align-items: stretch;
+/* ── Hero stats panel ───────────────────────────────── */
+.hss-panel {
   max-width: 760px;
   margin: 0 auto;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-}
-
-.hss-block {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.hss-block-label {
-  font-family: var(--font-display);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text3);
-  padding: 10px 20px 0;
+  background: var(--bg2);
 }
 
 .hss-headline {
-  width: 100%;
-  padding: 8px 20px 14px;
+  padding: 20px 28px 18px;
   border-bottom: 1px solid var(--border);
-  text-align: left;
-  background: rgba(255,107,53,0.05);
+  background: oklch(from var(--papaya) l c h / 0.06);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .hss-big {
   font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 52px);
+  font-size: clamp(38px, 6vw, 58px);
   font-weight: 900;
   line-height: 1;
   color: var(--papaya);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .hss-big-lbl {
   font-family: var(--font-display);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text3);
-  margin-top: 3px;
+  padding-bottom: 4px;
 }
 
-.hss-row {
+.hss-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hss-group {
+  padding: 18px 24px 20px;
   display: flex;
-  align-items: center;
-  width: 100%;
-  border-bottom: 1px solid var(--border);
-  flex: 1;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.hss-row:last-child { border-bottom: none; }
+.hss-group + .hss-group {
+  border-left: 1px solid var(--border);
+}
+
+.hss-group-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+
+.hss-stats-row {
+  display: flex;
+  align-items: flex-start;
+}
 
 .hss-stat {
   flex: 1;
-  padding: 12px 16px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.hss-divider {
-  color: var(--border2);
-  font-size: 18px;
-  flex-shrink: 0;
+.hss-stat + .hss-stat {
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
+  margin-left: 16px;
 }
 
 .hss-num {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
   line-height: 1;
   color: var(--text);
-  margin-bottom: 2px;
+  letter-spacing: -0.01em;
 }
 
 .hss-lbl {
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text3);
+  line-height: 1.3;
 }
 
 @media (max-width: 620px) {
-  .hero-stats-story { flex-direction: column; }
-  .hss-block { border-left: none !important; border-top: 1px solid var(--border); }
-  .hss-block:first-child { border-top: none; }
-  .hss-stat { padding: 10px 8px; }
-  .hss-num { font-size: 20px; }
+  .hss-bottom { grid-template-columns: 1fr; }
+  .hss-group + .hss-group { border-left: none; border-top: 1px solid var(--border); }
+  .hss-headline { padding: 16px 18px 14px; }
+  .hss-group { padding: 14px 18px 16px; }
+  .hss-num { font-size: 22px; }
+  .hss-big { font-size: clamp(32px, 10vw, 44px); }
 }
 
 /* ═══════════════════════════════════════
@@ -1076,7 +1085,15 @@ body::before {
   flex-direction: column;
   gap: 6px;
   margin-bottom: 28px;
+  min-width: 540px;
 }
+
+.mg-alltime-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 28px;
+}
+.mg-alltime-scroll .mg-alltime-grid { margin-bottom: 0; }
 
 .mga-row {
   display: grid;
@@ -1192,7 +1209,6 @@ body::before {
   .standings-section, .replay-section, .minigames-section { grid-column: 1; grid-row: auto; }
   .flourish-placeholder { min-height: 180px; }
   .records-grid { grid-template-columns: 1fr 1fr; }
-  .mga-row { grid-template-columns: 1fr 60px 60px 60px 50px; }
   .sgw-row { grid-template-columns: 55px 90px 1fr; gap: 10px; }
   .season-main { padding: 10px 12px; }
   .season-winner-name { font-size: 18px; }
@@ -1211,7 +1227,6 @@ body::before {
   .season-year { font-size: 11px; }
   .hero-title { line-height: 0.88; }
   .hero-stat-num { font-size: 28px; }
-  .mga-row { grid-template-columns: 1fr 50px 50px 50px 44px; font-size: 12px; }
 }
 
 /* ═══════════════════════════════════════
@@ -1655,62 +1670,64 @@ body::before {
       <span class="line2">Champions</span>
       <span class="line3">10 Seasons</span>
     </h1>
-    <p class="hero-sub">Nine completed seasons. Six different champions. One league that refused to die.</p>
-    <div class="hero-stats-story">
+    <p class="hero-sub" id="hero-sub-text">Ten completed seasons. Seven different champions. One league that refused to die.</p>
+    <div class="hss-panel">
 
-      <!-- Block A: Points story -->
-      <div class="hss-block">
-        <div class="hss-block-label">The Points</div>
-        <div class="hss-headline">
-          <div class="hss-big">170,874</div>
-          <div class="hss-big-lbl">points scored across 9 seasons</div>
-        </div>
-        <div class="hss-row">
-          <div class="hss-stat">
-            <div class="hss-num">18,986</div>
-            <div class="hss-lbl">Avg league score per season</div>
-          </div>
-          <div class="hss-divider">·</div>
-          <div class="hss-stat">
-            <div class="hss-num">2,404</div>
-            <div class="hss-lbl">Avg winning score</div>
-          </div>
-          <div class="hss-divider">·</div>
-          <div class="hss-stat">
-            <div class="hss-num">60.2</div>
-            <div class="hss-lbl">Avg pts per GW</div>
-          </div>
-        </div>
+      <!-- Headline: total points -->
+      <div class="hss-headline">
+        <div class="hss-big" id="hss-total-pts">—</div>
+        <div class="hss-big-lbl" id="hss-total-lbl">points scored across — seasons</div>
       </div>
 
-      <!-- Block B: The League -->
-      <div class="hss-block" style="border-left: 1px solid var(--border);">
-        <div class="hss-block-label">The League</div>
-        <div class="hss-row" style="border-bottom:none;padding-top:12px;">
-          <div class="hss-stat">
-            <div class="hss-num">342</div>
-            <div class="hss-lbl">Gameweeks played</div>
-          </div>
-          <div class="hss-divider">·</div>
-          <div class="hss-stat">
-            <div class="hss-num">18</div>
-            <div class="hss-lbl">Managers ever</div>
-          </div>
-          <div class="hss-divider">·</div>
-          <div class="hss-stat">
-            <div class="hss-num">6</div>
-            <div class="hss-lbl">Different champions</div>
+      <!-- Bottom: two groups -->
+      <div class="hss-bottom">
+
+        <!-- Group A: Points -->
+        <div class="hss-group">
+          <div class="hss-group-label">The Points</div>
+          <div class="hss-stats-row">
+            <div class="hss-stat">
+              <div class="hss-num" id="hss-avg-league">—</div>
+              <div class="hss-lbl">Avg league score per season</div>
+            </div>
+            <div class="hss-stat">
+              <div class="hss-num" id="hss-avg-winner">—</div>
+              <div class="hss-lbl">Avg winning score</div>
+            </div>
+            <div class="hss-stat">
+              <div class="hss-num" id="hss-avg-gw">—</div>
+              <div class="hss-lbl">Avg pts per GW</div>
+            </div>
           </div>
         </div>
-      </div>
 
+        <!-- Group B: The League -->
+        <div class="hss-group">
+          <div class="hss-group-label">The League</div>
+          <div class="hss-stats-row">
+            <div class="hss-stat">
+              <div class="hss-num" id="hss-total-gws">—</div>
+              <div class="hss-lbl">Gameweeks played</div>
+            </div>
+            <div class="hss-stat">
+              <div class="hss-num" id="hss-managers">—</div>
+              <div class="hss-lbl">Managers ever</div>
+            </div>
+            <div class="hss-stat">
+              <div class="hss-num" id="hss-champions">—</div>
+              <div class="hss-lbl">Different champions</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-header">
       <h2 class="section-title">Season <span>Archive</span></h2>
-      <span class="section-count">9 Completed · Season 10 Ongoing</span>
+      <span class="section-count" id="season-archive-count">— Seasons Completed</span>
     </div>
     <div class="seasons-list" id="seasons-list">
       <!-- Injected by JS -->
@@ -1736,16 +1753,18 @@ body::before {
       <span class="section-count">Fantasy · Draft · Prediction · Challenge</span>
     </div>
     <p style="font-size:13px;color:var(--text3);margin-bottom:20px;line-height:1.6;">Every competition. Every title. Only managers who have won something.</p>
-    <div class="mg-alltime-grid">
-      <div class="mga-row" style="background:var(--surface);border-color:var(--surface2);">
-        <span class="mga-hdr" style="text-align:left;">Manager</span>
-        <span class="mga-hdr" style="color:#FFD700;">Fantasy</span>
-        <span class="mga-hdr" style="color:var(--fpl-cyan);">Draft</span>
-        <span class="mga-hdr" style="color:var(--fpl-green);">Prediction</span>
-        <span class="mga-hdr" style="color:var(--papaya);">Challenge</span>
-        <span class="mga-hdr">Total</span>
+    <div class="mg-alltime-scroll">
+      <div class="mg-alltime-grid">
+        <div class="mga-row" style="background:var(--surface);border-color:var(--surface2);">
+          <span class="mga-hdr" style="text-align:left;">Manager</span>
+          <span class="mga-hdr" style="color:#FFD700;">Fantasy</span>
+          <span class="mga-hdr" style="color:var(--fpl-cyan);">Draft</span>
+          <span class="mga-hdr" style="color:var(--fpl-green);">Prediction</span>
+          <span class="mga-hdr" style="color:var(--papaya);">Challenge</span>
+          <span class="mga-hdr">Total</span>
+        </div>
+        <div id="mg-alltime-rows"></div>
       </div>
-      <div id="mg-alltime-rows"></div>
     </div>
   </div>
 
@@ -2107,6 +2126,7 @@ async function loadData() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     transformData(data);
+    populateHeroStats(data);
     buildHoF();
     buildLeaderboard();
     buildRecords();
@@ -2145,6 +2165,57 @@ function showSubTab(id, btn) {
   document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('sub-' + id).classList.add('active');
   btn.classList.add('active');
+}
+
+/* ═══════════════════════════════════════
+   POPULATE HERO STATS (dynamic, from data.json)
+═══════════════════════════════════════ */
+function populateHeroStats(d) {
+  const ls = d.league_stats || {};
+  const n  = ls.seasons_completed || SEASONS.length;
+  const fmt = v => typeof v === 'number' ? v.toLocaleString() : v;
+
+  // Ordinal words for hero sentence
+  const WORDS = ['','One','Two','Three','Four','Five','Six','Seven','Eight',
+                 'Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen'];
+  const word = x => WORDS[x] || x;
+
+  // Hero sub-headline sentence
+  const champions = ls.unique_champions || 0;
+  const sub = document.getElementById('hero-sub-text');
+  if (sub) sub.textContent =
+    `${word(n)} completed seasons. ${word(champions)} different champions. One league that refused to die.`;
+
+  // Hero title "10 Seasons" line
+  const titleLine3 = document.querySelector('.hero-title .line3');
+  if (titleLine3) titleLine3.textContent = `${n} Seasons`;
+
+  // Big number: total points
+  const totalPts = document.getElementById('hss-total-pts');
+  const totalLbl = document.getElementById('hss-total-lbl');
+  if (totalPts) totalPts.textContent = fmt(ls.total_pts);
+  if (totalLbl) totalLbl.textContent = `points scored across ${n} seasons`;
+
+  // Points group
+  const avgLeague = document.getElementById('hss-avg-league');
+  const avgWinner = document.getElementById('hss-avg-winner');
+  const avgGw     = document.getElementById('hss-avg-gw');
+  if (avgLeague) avgLeague.textContent = fmt(Math.round(ls.avg_league_per_season));
+  if (avgWinner) avgWinner.textContent = fmt(Math.round(ls.avg_champion_pts));
+  if (avgGw)     avgGw.textContent     = ls.avg_pts_per_gw;
+
+  // League group — total GWs from actual season data (not hardcoded 380)
+  const realGwCount = SEASONS.reduce((sum, s) => sum + (s.gw_count || 0), 0);
+  const totalGws   = document.getElementById('hss-total-gws');
+  const managers   = document.getElementById('hss-managers');
+  const champs     = document.getElementById('hss-champions');
+  if (totalGws) totalGws.textContent = fmt(realGwCount);
+  if (managers) managers.textContent = ls.total_managers_ever || Object.keys(MANAGERS).length;
+  if (champs)   champs.textContent   = champions;
+
+  // Season Archive count
+  const archiveCount = document.getElementById('season-archive-count');
+  if (archiveCount) archiveCount.textContent = `${n} Seasons Completed`;
 }
 
 /* ═══════════════════════════════════════
@@ -2908,15 +2979,17 @@ function renderSGW() {
 /* ═══════════════════════════════════════
    MANAGER PROFILES ENGINE
 ═══════════════════════════════════════ */
-const MP_OG    = ['ASH','PWK','LCN','LGZ','SES'];
-const MP_ALUMNI= ['CKN','OPH','TCY'];
-const MP_ACTIVE= ['ASH','PWK','LCN','LGZ','SES','LHY','TFT','KHJ','CSZ','TKC','GCH','GWL','YLY','LCS','NCS'];
+// Derived from MANAGERS + SEASONS at runtime so new managers flow through
+// automatically. No hardcoded code lists.
+function mpOg()     { return (SEASONS[0] && SEASONS[0].managerCodes) || []; }
+function mpAlumni() { return Object.keys(MANAGERS).filter(c => MANAGERS[c].status === 'alumni'); }
+function mpActive() { return Object.keys(MANAGERS).filter(c => MANAGERS[c].status === 'active'); }
 
 let _arcChart = null;
 
 function mpBadge(code) {
-  if (MP_OG.includes(code))    return '<span class="mp-badge mp-badge-og">OG</span>';
-  if (MP_ALUMNI.includes(code)) return '<span class="mp-badge mp-badge-alum">Alumni</span>';
+  if (mpOg().includes(code))     return '<span class="mp-badge mp-badge-og">OG</span>';
+  if (mpAlumni().includes(code)) return '<span class="mp-badge mp-badge-alum">Alumni</span>';
   return '';
 }
 
@@ -2990,8 +3063,8 @@ function buildMgrSelector() {
   const mkBtn = (code, isFirst) =>
     `<button class="mp-card-btn${isFirst ? ' active' : ''}" onclick="mpSelect('${code}',this)">${code}${mpBadge(code)}</button>`;
   const sep = '<span style="display:inline-block;width:1px;height:22px;background:var(--border);margin:0 4px;align-self:center"></span>';
-  const active = MP_ACTIVE.filter(c => ALLTIME.find(a => a.code === c));
-  const alumni = MP_ALUMNI.filter(c => ALLTIME.find(a => a.code === c));
+  const active = mpActive().filter(c => ALLTIME.find(a => a.code === c));
+  const alumni = mpAlumni().filter(c => ALLTIME.find(a => a.code === c));
   grid.innerHTML = active.map((c, i) => mkBtn(c, i === 0)).join('') + sep + alumni.map(c => mkBtn(c, false)).join('');
   if (active.length) renderMgrProfile(active[0]);
 }
